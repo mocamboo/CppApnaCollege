@@ -60,13 +60,13 @@ int main()
     /*
                         1
                       /   \
-                       2     3
+                     2     3
                     /     /  \
                    4     6    5
-                             /
-                            7
-                           /
-                          8
+                       /  \   /
+                      9   10|7
+                            /
+                           8
 
     */
     struct Node *root = new Node(1);
@@ -75,6 +75,8 @@ int main()
     root->left->left = new Node(4);
     root->right->right = new Node(5);
     root->right->left = new Node(6);
+    root->right->left->left=new Node(9);
+    root->right->left->right=new Node(10);
     root->right->right->left = new Node(7);
     root->right->right->left->left = new Node(8);
 
