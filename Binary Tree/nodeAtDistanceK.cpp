@@ -39,7 +39,7 @@ int printNodesAtK(Node *root, Node *target, int k)
         return 0;
     }
 
-    int dl = printNodesAtK(root->left, target, k);
+    int dl = printNodesAtK(root->left, target, k); // distance of root->left from target
     if (dl != -1)
     {
         if (dl + 1 == k)

@@ -14,7 +14,7 @@ struct Node
     }
 };
 
-void printLevelOrder(Node *root)
+void levelOrderTraversel(Node *root)
 {
     if (root == NULL)
         return;
@@ -35,7 +35,10 @@ void printLevelOrder(Node *root)
                 q.push(curr->right);
         }
         else if (!q.empty())
+        {
             q.push(NULL);
+            cout << endl;
+        }
     }
 }
 int main()
@@ -47,7 +50,7 @@ int main()
     root->left->right = new Node(5);
     root->right->left = new Node(6);
     root->right->right = new Node(7);
-    printLevelOrder(root);
+    levelOrderTraversel(root);
 
     return 0;
 }
