@@ -8,6 +8,9 @@ int main()
     vector<int> a(n);
     for (auto &i : a)
         cin >> i;
+
+    sort(a.begin(), a.end());
+
     for (int i = 0; i < n - 1; i++)
     {
         int lo = i + 1;
