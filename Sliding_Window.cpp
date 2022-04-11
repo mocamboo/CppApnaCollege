@@ -45,7 +45,7 @@ int main()
     cout<<endl;
     int brr[]={1,4,45,7,10,19};
     int y=51;
-    cout<<minSubarraySum(brr,6,y);//ans=2
+    cout<<smallestSubarrayWithSum(brr,6,y);//ans=2
 
     return 0;
 }
