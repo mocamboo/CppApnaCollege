@@ -1,49 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
-    struct Node *left;
-    struct Node *right;
+    struct Node* left;
+    struct Node* right;
 
-    Node(int val)
-    {
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
 
-void levelOrderTraversel(Node *root)
-{
+void levelOrderTraversel(Node* root) {
     if (root == NULL)
         return;
-    queue<Node *> q;
+    queue<Node*> q;
     q.push(root);
     q.push(NULL);
 
-    while (!q.empty())
-    {
-        Node *curr = q.front();
+    while (!q.empty()) {
+        Node* curr = q.front();
         q.pop();
-        if (curr != NULL)
-        {
+        if (curr != NULL) {
             cout << curr->data << " ";
             if (curr->left)
                 q.push(curr->left);
             if (curr->right)
                 q.push(curr->right);
-        }
-        else if (!q.empty())
-        {
+        } else if (!q.empty()) {
             q.push(NULL);
             cout << endl;
         }
     }
 }
-int main()
-{
-    struct Node *root = new Node(1);
+int main() {
+    struct Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);

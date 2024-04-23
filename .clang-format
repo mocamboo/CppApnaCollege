@@ -2,11 +2,11 @@
 Language:        Cpp
 BasedOnStyle:    LLVM
 AccessModifierOffset: -4
-ColumnLimit:     80
+ColumnLimit:     200
 IndentWidth:     4
 TabWidth:        4
 UseTab:          Never
-BreakBeforeBraces: Custom
+BreakBeforeBraces: Attach
 BraceWrapping:
   AfterClass:      false
   AfterControlStatement: false

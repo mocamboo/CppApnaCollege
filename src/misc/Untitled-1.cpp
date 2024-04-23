@@ -2,8 +2,7 @@
 #include <iostream>
 #include <map>
 
-int main()
-{
+int main() {
     std::map<char, int> mymap;
     std::map<char, int>::iterator it;
 

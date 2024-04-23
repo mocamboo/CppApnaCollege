@@ -1,22 +1,22 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int countSetbits(int n){
+int countSetbits(int n) {
     int count = 0;
-    while(n){
+    while (n) {
         count += n & 1;
-        n=n >> 1;
+        n = n >> 1;
     }
     return count;
 }
-int countSetBits2(int n){
-    int count=0;
-    while(n){
+int countSetBits2(int n) {
+    int count = 0;
+    while (n) {
         count++;
         n &= (n - 1);
     }
     return count;
 }
-int main(){
+int main() {
 
     cout << countSetbits(15) << endl;
     cout << countSetbits(16) << endl;

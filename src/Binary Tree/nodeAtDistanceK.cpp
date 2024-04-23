@@ -1,11 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
     Node *left, *right;
-    Node(int val)
-    {
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
@@ -13,14 +11,11 @@ struct Node
 };
 
 // case 1
-void printSubtreeNodes(Node *root, int k)
-{
-    if (root == NULL || k < 0)
-    {
+void printSubtreeNodes(Node* root, int k) {
+    if (root == NULL || k < 0) {
         return;
     }
-    if (k == 0)
-    {
+    if (k == 0) {
         cout << root->data << " ";
         return;
     }
@@ -29,19 +24,16 @@ void printSubtreeNodes(Node *root, int k)
 }
 
 // case 2
-int printNodesAtK(Node *root, Node *target, int k)
-{
+int printNodesAtK(Node* root, Node* target, int k) {
     if (root == NULL)
         return -1;
-    if (root == target)
-    {
+    if (root == target) {
         printSubtreeNodes(root, k);
         return 0;
     }
 
     int dl = printNodesAtK(root->left, target, k); // distance of root->left from target
-    if (dl != -1)
-    {
+    if (dl != -1) {
         if (dl + 1 == k)
             cout << root->data << " ";
         else
@@ -49,8 +41,7 @@ int printNodesAtK(Node *root, Node *target, int k)
         return dl + 1;
     }
     int dr = printNodesAtK(root->right, target, k);
-    if (dr != -1)
-    {
+    if (dr != -1) {
         if (dr + 1 == k)
             cout << root->data << " ";
         else
@@ -59,8 +50,7 @@ int printNodesAtK(Node *root, Node *target, int k)
     }
     return -1;
 }
-int main()
-{
+int main() {
     /*
                         1
                       /   \
@@ -75,7 +65,7 @@ int main()
                        12
 
     */
-    Node *root = new Node(1);
+    Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);
@@ -88,7 +78,7 @@ int main()
     root->right->right->left = new Node(7);
     root->right->right->left->left = new Node(8);
 
-    Node *target = root->right->left;
+    Node* target = root->right->left;
     printNodesAtK(root, target, 3); // 12 7 2
 
     return 0;

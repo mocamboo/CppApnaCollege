@@ -2,8 +2,8 @@
 using namespace std;
 struct Node {
     int data;
-    Node *left;
-    Node *right;
+    Node* left;
+    Node* right;
     Node(int val) {
         data = val;
         left = NULL;
@@ -11,29 +11,30 @@ struct Node {
     }
 };
 
-Node *inorderSucc(Node *root) {
-    Node *curr = root;
+Node* inorderSucc(Node* root) {
+    Node* curr = root;
     while (curr && curr->left != NULL) {
         curr = curr->left;
     }
     return curr;
 }
 
-Node *deleteNode(Node *root, int key) {
-    if (root == NULL) return NULL;
+Node* deleteNode(Node* root, int key) {
+    if (root == NULL)
+        return NULL;
     if (root->data == key) {
         if (root->left == NULL) {
-            Node *temp = root->right;
+            Node* temp = root->right;
             free(root);
             return temp;
         }
         if (root->right == NULL) {
-            Node *temp = root->left;
+            Node* temp = root->left;
             free(root);
             return temp;
         }
         // case3
-        Node *temp = inorderSucc(root->right);
+        Node* temp = inorderSucc(root->right);
         root->data = temp->data;
         root->right = deleteNode(root->right, temp->data);
     }
@@ -47,7 +48,7 @@ Node *deleteNode(Node *root, int key) {
 }
 
 // ___________________________Search__________________________________
-Node *search(Node *root, int key) {
+Node* search(Node* root, int key) {
     if (root == NULL) {
         return NULL;
     }
@@ -59,7 +60,7 @@ Node *search(Node *root, int key) {
     }
     return search(root->right, key);
 }
-Node *insertBST(Node *root, int val) {
+Node* insertBST(Node* root, int val) {
     if (root == NULL) {
         return new Node(val);
     }
@@ -71,14 +72,15 @@ Node *insertBST(Node *root, int val) {
     return root;
 }
 
-void inorder(Node *root) {
-    if (root == NULL) return;
+void inorder(Node* root) {
+    if (root == NULL)
+        return;
     inorder(root->left);
     cout << root->data << " ";
     inorder(root->right);
 }
 int main() {
-    Node *root = NULL;
+    Node* root = NULL;
     root = insertBST(root, 4);
     insertBST(root, 2);
     insertBST(root, 1);

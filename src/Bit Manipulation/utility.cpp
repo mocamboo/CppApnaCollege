@@ -1,12 +1,11 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int years(int n){
+int years(int n) {
     n /= 4;
     n /= 365;
     return n;
 }
-int main()
-{
+int main() {
 
     cout << years(10000);
     return 0;

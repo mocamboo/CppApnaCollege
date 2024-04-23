@@ -1,28 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node
-{
+struct Node {
     int data;
-    struct Node *left;
-    struct Node *right;
+    struct Node* left;
+    struct Node* right;
 
-    Node(int val)
-    {
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
 
-int sumNode(Node *root)
-{
+int sumNode(Node* root) {
     if (root == NULL)
         return 0;
     return sumNode(root->left) + sumNode(root->right) + 1;
 }
-void sumReplacement(Node *root)
-{
+void sumReplacement(Node* root) {
     if (root == NULL)
         return;
     sumReplacement(root->left);
@@ -33,17 +29,15 @@ void sumReplacement(Node *root)
     if (root->right != NULL)
         root->data += root->right->data;
 }
-void printInorder(Node *root)
-{
+void printInorder(Node* root) {
     if (root == NULL)
         return;
     printInorder(root->left);
     cout << root->data << " ";
     printInorder(root->right);
 }
-int main()
-{
-    struct Node *root = new Node(1);
+int main() {
+    struct Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);

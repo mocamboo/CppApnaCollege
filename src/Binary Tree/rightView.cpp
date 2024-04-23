@@ -1,31 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
-    struct Node *left;
-    struct Node *right;
-    Node(int val)
-    {
+    struct Node* left;
+    struct Node* right;
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
 
-void rightView(Node *root)
-{
+void rightView(Node* root) {
     if (root == NULL)
         return;
 
-    queue<Node *> q;
+    queue<Node*> q;
     q.push(root);
-    while (!q.empty())
-    {
+    while (!q.empty()) {
         int n = q.size();
-        for (int i = 0; i < n; i++)
-        {
-            Node *curr = q.front();
+        for (int i = 0; i < n; i++) {
+            Node* curr = q.front();
             q.pop();
             if (i == 0) // left view
                 cout << curr->data << " ";
@@ -39,9 +34,8 @@ void rightView(Node *root)
     }
 }
 
-int main()
-{
-    struct Node *root = new Node(1);
+int main() {
+    struct Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);

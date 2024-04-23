@@ -1,41 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
     Node *left, *right;
-    Node(int val)
-    {
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
 
-void flatten(Node *root)
-{
-    if (root == NULL || (root->left == NULL && root->right == NULL))
-    {
+void flatten(Node* root) {
+    if (root == NULL || (root->left == NULL && root->right == NULL)) {
         return;
     }
-    if (root->left != NULL)
-    {
+    if (root->left != NULL) {
         flatten(root->left);
-        Node *temp = root->right;
+        Node* temp = root->right;
         root->right = root->left;
 
         root->left = NULL;
-        Node *it = root->right;
-        while (it->right != NULL)
-        {
+        Node* it = root->right;
+        while (it->right != NULL) {
             it = it->right;
         }
         it->right = temp;
     }
     flatten(root->right);
 }
-void inorder(Node *root)
-{
+void inorder(Node* root) {
     if (root == NULL)
         return;
     inorder(root->left);
@@ -43,8 +36,7 @@ void inorder(Node *root)
     inorder(root->right);
 }
 
-int main()
-{
+int main() {
     /*
                     1
                   /   \
@@ -57,7 +49,7 @@ int main()
                       8
 
 */
-    struct Node *root = new Node(1);
+    struct Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);

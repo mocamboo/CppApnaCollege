@@ -1,26 +1,22 @@
 #include <iostream>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
-    struct Node *left;
-    struct Node *right;
-    Node(int val)
-    {
+    struct Node* left;
+    struct Node* right;
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
         ;
     }
 };
-int height(Node *root)
-{
+int height(Node* root) {
     if (root == NULL)
         return 0;
     return max(height(root->left), height(root->right)) + 1;
 }
-bool isBalanced(Node *root)
-{
+bool isBalanced(Node* root) {
     if (root == NULL)
         return true;
     if (isBalanced(root->left) == false)
@@ -35,10 +31,8 @@ bool isBalanced(Node *root)
         return false;
 }
 // _________________________________________Optimized________________________________________
-bool isBalanced(Node *root, int *height)
-{
-    if (root == NULL)
-    {
+bool isBalanced(Node* root, int* height) {
+    if (root == NULL) {
         *height = 0;
         return true;
     }
@@ -55,9 +49,8 @@ bool isBalanced(Node *root, int *height)
     else
         return false;
 }
-int main()
-{
-    struct Node *root = new Node(1);
+int main() {
+    struct Node* root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     // root->left->left = new Node(4);
