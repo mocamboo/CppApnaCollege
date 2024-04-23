@@ -1,24 +1,26 @@
 # BasedOnStyle: Google
 Language:        Cpp
-BasedOnStyle:    LLVM
 AccessModifierOffset: -4
-ColumnLimit:     200
-IndentWidth:     4
-TabWidth:        4
-UseTab:          Never
-BreakBeforeBraces: Attach
+
+BasedOnStyle: LLVM
+BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterClass:      false
-  AfterControlStatement: false
-  AfterEnum:       false
-  AfterFunction:   false
-  AfterNamespace:  false
-  AfterStruct:     false
-  AfterUnion:      false
-  BeforeCatch:     false
-  BeforeElse:      false
-  IndentBraces:    false
-  SplitEmptyFunction: false
-  SplitEmptyRecord: false
-  SplitEmptyNamespace: false
-PointerAlignment: Left
+    AfterClass: false
+    AfterControlStatement: Never
+    AfterEnum: false
+    AfterFunction: true
+    AfterNamespace: false
+    AfterStruct: false
+    AfterUnion: false
+    BeforeCatch: false
+    BeforeElse: false
+    AfterExternBlock: false
+    SplitEmptyFunction: true
+    SplitEmptyRecord: true
+    SplitEmptyNamespace: true
+BraceBreakingStyle: Attach #ERROR
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 200
