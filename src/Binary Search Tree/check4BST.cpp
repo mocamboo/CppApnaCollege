@@ -1,32 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
     Node *left;
     Node *right;
-    Node(int val)
-    {
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
-bool check(Node *root, int min, int max)
-{
-    if (root == NULL)
-        return true;
-    if (root->data > min && root->data < max)
-    {
-        if (check(root->left, min, root->data) && check(root->right, root->data, max))
+bool check(Node *root, int min, int max) {
+    if (root == NULL) return true;
+    if (root->data > min && root->data < max) {
+        if (check(root->left, min, root->data) &&
+            check(root->right, root->data, max))
 
             return true;
     }
     return false;
 }
 
-int main()
-{
+int main() {
     Node *root1 = new Node(5);
     root1->left = new Node(6);
     root1->right = new Node(7);

@@ -1,24 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-int gcd(int a, int b)
-{
-    return b == 0 ? a : gcd(b, a % b);
-}
-bool check(long long int n)
-{
+int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
+bool check(long long int n) {
     int qsum = 0;
 
     long long int m = n;
-    while (n != 0)
-    {
+    while (n != 0) {
         int rem = n % 10;
 
         qsum += pow(rem, 4);
         n /= 10;
     }
     n = m;
-    while (n != 0)
-    {
+    while (n != 0) {
         int rem = n % 10;
         // for(int i=2;i<=rem;i++){
         //     if(rem%i==0){
@@ -27,8 +21,7 @@ bool check(long long int n)
         //         }
         //     }
         // }
-        if (gcd(rem, qsum) > 1)
-        {
+        if (gcd(rem, qsum) > 1) {
             return true;
         }
         n /= 10;
@@ -38,18 +31,13 @@ bool check(long long int n)
     // }
     return false;
 }
-int main()
-{
-
+int main() {
     long long n = 1000;
     // for (int n = 100; n <= 10234; n++)
     // {
-    if (check(n))
-    {
+    if (check(n)) {
         cout << "__yes" << endl;
-    }
-    else
-    {
+    } else {
         cout << "___No" << endl;
     }
     // }

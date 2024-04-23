@@ -31,6 +31,7 @@ class Node {
 
 int main() {
     // Node b; // Stack Allocation [default cons]
+
     // Difference b/w Node a = *new Node(4);  and  Node* head = new Node(4);
     // Node a = *new Node(4); // >> Parameterised Con >> Copy Cons >> Destructur
     // Cons

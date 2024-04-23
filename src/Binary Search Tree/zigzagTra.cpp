@@ -1,127 +1,93 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
     Node *left, *right;
-    Node(int val)
-    {
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
-void zigzagTra(Node *root)
-{
-    if (root == NULL)
-        return;
+void zigzagTra(Node *root) {
+    if (root == NULL) return;
     deque<Node *> q;
     q.push_back(root);
     bool leftToright = true;
-    while (!q.empty())
-    {
+    while (!q.empty()) {
         int n = q.size();
-        if (leftToright)
-        {
+        if (leftToright) {
             cout << "LeftToRight: ";
-            for (int i = 0; i < n; i++)
-            {
+            for (int i = 0; i < n; i++) {
                 Node *node = q.front();
                 q.pop_front();
                 cout << node->data << " ";
-                if (node->left)
-                    q.push_back(node->left);
-                if (node->right)
-                    q.push_back(node->right);
+                if (node->left) q.push_back(node->left);
+                if (node->right) q.push_back(node->right);
             }
             leftToright = false;
             cout << endl;
-        }
-        else
-        {
+        } else {
             cout << "RightToLeft: ";
-            for (int i = 0; i < n; i++)
-            {
+            for (int i = 0; i < n; i++) {
                 Node *node = q.back();
                 q.pop_back();
                 cout << node->data << " ";
-                if (node->left)
-                    q.push_front(node->right);
-                if (node->right)
-                    q.push_front(node->left);
+                if (node->left) q.push_front(node->right);
+                if (node->right) q.push_front(node->left);
             }
             cout << endl;
             leftToright = true;
         }
     }
 }
-void rightView(Node *root)
-{
-    if (root == NULL)
-        return;
+void rightView(Node *root) {
+    if (root == NULL) return;
     queue<Node *> q;
     q.push(root);
-    while (!q.empty())
-    {
+    while (!q.empty()) {
         int n = q.size();
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             Node *node = q.front();
             q.pop();
-            if (i == n - 1)
-                cout << node->data << " ";
-            if (node->left)
-                q.push(node->left);
-            if (node->right)
-                q.push(node->right);
+            if (i == n - 1) cout << node->data << " ";
+            if (node->left) q.push(node->left);
+            if (node->right) q.push(node->right);
         }
     }
 }
 
-void levelOrderTraversal(Node *root)
-{
-    if (root == NULL)
-        return;
+void levelOrderTraversal(Node *root) {
+    if (root == NULL) return;
     queue<Node *> q;
     q.push(root);
     q.push(NULL);
-    while (!q.empty())
-    {
+    while (!q.empty()) {
         Node *node = q.front();
         q.pop();
-        if (node != NULL)
-        {
+        if (node != NULL) {
             cout << node->data << " ";
-            if (node->left != NULL)
-                q.push(node->left);
-            if (node->right != NULL)
-                q.push(node->right);
-        }
-        else if (!q.empty())
-        {
+            if (node->left != NULL) q.push(node->left);
+            if (node->right != NULL) q.push(node->right);
+        } else if (!q.empty()) {
             q.push(NULL);
             cout << endl;
         }
     }
 }
-void inorder(Node *root)
-{
-    if (root == NULL)
-        return;
+void inorder(Node *root) {
+    if (root == NULL) return;
     inorder(root->left);
     cout << root->data << " ";
     inorder(root->right);
 }
-void preorder(Node *root)
-{
-    if (root == NULL)
-        return;
+void preorder(Node *root) {
+    if (root == NULL) return;
     cout << root->data << " ";
     preorder(root->left);
     preorder(root->right);
 }
-int main()
-{
+int main() {
     Node *root = new Node(4);
     root->left = new Node(2);
     root->left->right = new Node(3);
@@ -133,8 +99,7 @@ int main()
     cout << endl;
     inorder(root);
     cout << endl;
-    cout << "Right View:"
-         << "\n";
+    cout << "Right View:" << "\n";
     rightView(root);
     cout << endl;
     cout << "Level Order Traversl:" << endl;

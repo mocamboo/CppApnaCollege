@@ -1,45 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct Node
-{
+struct Node {
     int data;
     Node *left, *right;
-    Node(int val)
-    {
+    Node(int val) {
         data = val;
         left = NULL;
         right = NULL;
     }
 };
 
-Node *constructBST(int preorder[], int *idx, int key, int min, int max, int n)
-{
-    if (*idx >= n)
-        return NULL;
+Node *constructBST(int preorder[], int *idx, int key, int min, int max, int n) {
+    if (*idx >= n) return NULL;
     Node *root = NULL;
-    if (key > min && key < max)
-    {
+    if (key > min && key < max) {
         root = new Node(key);
         *idx = *idx + 1;
         // *idx++; Doesn't work
         if (*idx < n)
-            root->left = constructBST(preorder, idx, preorder[*idx], min, key, n);
+            root->left =
+                constructBST(preorder, idx, preorder[*idx], min, key, n);
         if (*idx < n)
-            root->right = constructBST(preorder, idx, preorder[*idx], key, max, n);
+            root->right =
+                constructBST(preorder, idx, preorder[*idx], key, max, n);
     }
     return root;
 }
-void inorder(Node *root)
-{
-    if (root == NULL)
-        return;
+void inorder(Node *root) {
+    if (root == NULL) return;
     inorder(root->left);
     cout << root->data << " ";
     inorder(root->right);
 }
-int main()
-{
-
+int main() {
     /*
                  10
                 /  \
